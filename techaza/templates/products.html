@@ -1,12 +1,21 @@
+{% extends "layout.html" %}
+{% load static %}
 
+{% block body %}
+<h2 class="store m-5">Store</h2>
+<div class="container"></div>
+<div class="row row-cols-2 ">
 
-{% for item in products %}
-<div class="card" style="width: 18rem;">
-    <img src="{{ item.image.url }}" class="card-img-top" alt="...">
+  {% for item in products %}
+  <div class="card inner p-5 text-center shadow m-5 g-4 " style="width: 18rem;">
+    <img src={{ item.image.url }} class="card-img-top" height="180px" alt="...">
     <div class="card-body">
       <h5 class="card-title">{{ item.name }}</h5>
-      <p class="card-text">{{ item.description }}</p>
-      <a href="#" class="btn btn-primary">{{ item.price }}</a>
+      <h5 class="card-text">₹{{ item.price }}</h5>
     </div>
   </div>
   {% endfor %}
+</div>
+</div>
+
+{% endblock %}
