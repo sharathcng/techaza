@@ -13,3 +13,7 @@ class ProductsList(ListView):
     def get_queryset(self, *args, **kwargs):
         products = Product.objects.all()
         return products
+
+class HomePage(ListView):
+    template_name = 'home.html'
+    model = Product
