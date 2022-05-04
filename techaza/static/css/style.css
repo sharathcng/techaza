@@ -20,7 +20,7 @@ html {
 
 body {
     scroll-behavior: smooth;
-    font-family: poppins', sans-serif;
+    font-family: 'poppins', sans-serif;
 
 }
 
@@ -211,8 +211,9 @@ body {
 }
 
 .center {
-    top: 30%;
-    left: 30%;
+    position: relative;
+    top: 40%;
+    left: 50%;
     margin-bottom: 110px;
     transform: translate(-50%, -50%);
     width: 400px;

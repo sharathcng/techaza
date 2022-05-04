@@ -5,27 +5,44 @@
 <!-- signup form -->
 
 <div class="center p-5 mt-5 shadow">
+    {% if form.non_field_errors %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>{{fm.non_field_errors}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endif %}
+    <p>{{form.username.errors}}</p>
+    <p>{{form.email.errors}}</p>
+    <p>{{form.password1.errors}}</p>
+    <p>{{form.password2.errors}}</p>
+
     <h4 class="text-center">Join for free</h4>
-    <form method="post">
+    <form method="POST">
+        {% csrf_token %}
         <div class="txt_field">
-            <input type="email" name="email" required>
+            {{form.username}}
+            <span></span>
+            <label>Username</label>
+           
+        </div>
+        <div class="txt_field">
+            {{form.email}}
             <span></span>
             <label>Email</label>
+           
         </div>
         <div class="txt_field">
-            <input type="password" name="password" required>
+            {{form.password1}}
             <span></span>
             <label>Password</label>
+            
         </div>
-        <input type="submit" value="Signup">
-        <div class="signup_link">
-            By signing up you agree to Terms of Service & Privacy Policy.
-            <!-- <a href="#">Signup</a> -->
+        <div class="txt_field">
+            {{form.password2}}
+            <span></span>
+            <label>Re-enter Password</label>
         </div>
+        <button type="submit">Sign Up</button>
     </form>
 </div>
-<div class="signup-img">
-    <img src="static/Assets/images/signup/signup.svg" height="550px" width="550px"></div>
-
-
 {% endblock %}
