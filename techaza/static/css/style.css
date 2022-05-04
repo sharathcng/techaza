@@ -211,9 +211,8 @@ body {
 }
 
 .center {
-    position: relative;
     top: 30%;
-    left: 70%;
+    left: 30%;
     margin-bottom: 110px;
     transform: translate(-50%, -50%);
     width: 400px;
@@ -324,13 +323,6 @@ input[type="submit"]:hover {
 
 .signup_link a:hover {
     text-decoration: underline;
-}
-
-.loginimg {
-    position: absolute;
-    left: 8%;
-    bottom: 18%;
-    top: 4%;
 }
 
 .signup-img {
