@@ -12,19 +12,20 @@ from django.contrib.auth.models import User
 
 
 class Login(LoginView):
-    template_name = "loginPage.html"
+    template_name = "registration/login.html"
+
     def get_success_url(self):
-        url = self.get_redirect_url()
-        messages.success(self.request,"Hey, Buddy..! Welcome to STCS dashboard.")
+        messages.success(self.request,"Hey, "+self.request.user.username+"..! Welcome to Techaza...!")
         return reverse_lazy('home')
 
 class Signup(CreateView):
     model = User
-    template_name = "signup.html"
+    template_name = "registration/signup.html"
     form_class = UserCreateForm
     success_url = reverse_lazy('home')
 
 class Logout(LogoutView):
+    next_page = reverse_lazy('login')
+
     def get_success_url(self):
         messages.success(self.request,"Hi, Buddy..! You have been successfully logged out! Come back soon!")
-    next_page = reverse_lazy('login')

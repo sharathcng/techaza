@@ -1,13 +1,22 @@
-
-<form method="POST">
-    {% csrf_token %}
-                      {{form.username}}
-              
-  
-   
-                      {{form.password}}
-          
-  
-                      <button class="btn btn-dark btn-lg btn-block" type="submit">Login</button>
-          </form>
-           
+<!-- Login form -->
+<div class="center p-5 mt-5 shadow">
+    <h4 class="text-center">Login to continue</h4>
+    <form method="post">
+        {% csrf_token %}
+        <div class="txt_field">
+            {{form.username}}
+            <span></span>
+            <label>Email</label>
+        </div>
+        <div class="txt_field">
+            {{form.password}}
+            <span></span>
+            <label>Password</label>
+        </div>
+        <div class="pass">Forgot Password?</div>
+        <input type="submit" value="Login">
+        <div class="signup_link">
+            Not a member? <a href="{% url 'signup' %}">Signup</a>
+        </div>
+    </form>
+</div>

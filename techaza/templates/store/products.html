@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block body %}
+<h2 class="Store m-5">Store</h2>
+<div class="container">
+
+  <div class="row row-cols-2 ">
+
+    {% for item in page_obj %}
+    <div class="card inner p-5 text-center shadow m-5" style="width: 18rem;">
+      <img src={{ item.image.url }} class="card-img-top" height="180px" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{ item.name }}</h5>
+        <h5 class="card-text">₹{{ item.price }}</h5>
+      </div>
+    </div>
+    {% endfor %}
+    <div class="pagination align-middle text-center">
+      <span class="step-links">
+        {% if page_obj.has_previous %}
+        <a class="btn btn-sm btn-dark" href="?page=1">
+          <i class='bx bxs-arrow-to-left'></i>first
+        </a>
+        <a class="btn btn-sm btn-dark" href="?page={{ page_obj.previous_page_number }}">
+          <i class='bx bxs-chevron-left'></i>previous
+        </a>
+        {% endif %}
+
+        <span class="current">
+          Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+        <a class="btn btn-sm btn-dark" href="?page={{ page_obj.next_page_number }}">
+          next<i class='bx bxs-chevron-right'></i>
+        </a>
+        <a class="btn btn-sm btn-dark" href="?page={{ page_obj.paginator.num_pages }}">
+          last<i class='bx bxs-arrow-to-right'></i>
+        </a>
+        {% endif %}
+      </span>
+    </div>
+  </div>
+</div>
+{% endblock %}

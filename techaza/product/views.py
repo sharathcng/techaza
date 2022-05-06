@@ -5,10 +5,10 @@ from .models import Product
 
 # Create your views here.
 class ProductsList(ListView):
-    template_name = 'products.html'
+    template_name = 'store/products.html'
     model = Product
     context_object_name = 'products'
-    paginate_by = 6
+    paginate_by = 3
 
     def get_queryset(self, *args, **kwargs):
         products = Product.objects.all()
